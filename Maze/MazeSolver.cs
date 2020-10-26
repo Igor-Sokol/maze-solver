@@ -31,23 +31,15 @@ namespace Maze
         /// <summary>
         /// Gets the shortest path as a one-dimensional array of the pairs (row, column).
         /// </summary>
-        /// <returns>
-        /// The one-dimensional array of the pairs (row, column).
-        /// </returns>
-        /// <exception cref="InvalidOperationException">
-        /// Thrown if path finding algorithm wasn't started.
-        /// </exception>
+        /// <returns>The one-dimensional array of the pairs (row, column).</returns>
+        /// <exception cref="InvalidOperationException">Thrown if path finding algorithm wasn't started.</exception>
         public (int row, int column)[] GetPath() => throw new NotImplementedException();
         
         /// <summary>
         /// Gets the pairs (row, column) - indexes of row and columns of exit from maze.
         /// </summary>
-        /// <returns>
-        /// The indexes of row and columns of exit from maze.
-        /// </returns>
-        /// <exception cref="InvalidOperationException">
-        /// Thrown if path finding algorithm wasn't started.
-        /// </exception>
+        /// <returns>The indexes of row and columns of exit from maze.</returns>
+        /// <exception cref="InvalidOperationException">Thrown if path finding algorithm wasn't started.</exception>
         public (int row, int column) GetExit() => throw new NotImplementedException();
     }
 }
