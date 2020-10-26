@@ -8,7 +8,7 @@ namespace Maze
     /// <summary>
     /// Class for finding exit out of a maze. It is assumed that the maze always has one entrance and only one exit (if any) and they are different.
     /// </summary>
-    public class MazeSolver
+    public class MazeSolvers
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="MazeSolver"/> class.
@@ -20,7 +20,7 @@ namespace Maze
         /// <exception cref="ArgumentException">Thrown if passed maze is empty.</exception>
         /// <exception cref="ArgumentOutOfRangeException">Thrown if rowStart or columnStart are not in mazeModel:
         /// less than zero or more then number of elements in the dimension.</exception>
-        public MazeSolver(int[,] maze, int rowStart, int columnStart) => throw new NotImplementedException();
+        public MazeSolvers(int[,] maze, int rowStart, int columnStart) => throw new NotImplementedException();
 
         /// <summary>
         /// Starts an algorithm for finding shortest path.
@@ -31,15 +31,23 @@ namespace Maze
         /// <summary>
         /// Gets the shortest path as a one-dimensional array of the pairs (row, column).
         /// </summary>
-        /// <returns>The one-dimensional array of the pairs (row, column).</returns>
-        /// <exception cref="InvalidOperationException">Thrown if path finding algorithm wasn't started.</exception>
+        /// <returns>
+        /// The one-dimensional array of the pairs (row, column).
+        /// </returns>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown if path finding algorithm wasn't started.
+        /// </exception>
         public (int row, int column)[] GetPath() => throw new NotImplementedException();
         
         /// <summary>
         /// Gets the pairs (row, column) - indexes of row and columns of exit from maze.
         /// </summary>
-        /// <returns>The indexes of row and columns of exit from maze.</returns>
-        /// <exception cref="InvalidOperationException">Thrown if path finding algorithm wasn't started.</exception>
+        /// <returns>
+        /// The indexes of row and columns of exit from maze.
+        /// </returns>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown if path finding algorithm wasn't started.
+        /// </exception>
         public (int row, int column) GetExit() => throw new NotImplementedException();
     }
 }
