@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 #pragma warning disable CA1814
 #pragma warning disable S2368
@@ -6,24 +6,26 @@
 namespace Maze
 {
     /// <summary>
-    /// Class for finding exit out of a maze.
+    /// Class for finding exit out of a maze. It is assumed that the maze always has one entrance and only one exit (if any) and they are different.
     /// </summary>
-    public class MazeSolver
+    public class MazeSolvers
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="MazeSolver"/> class. 
+        /// Initializes a new instance of the <see cref="MazeSolver"/> class.
         /// </summary>
         /// <param name="maze">Presents a maze as two-dimensional zero-based matrix.</param>
         /// <param name="rowStart">The zero-based index of row of the start.</param>
         /// <param name="columnStart">The zero-based index of column of the start.</param>
-        /// <exception cref="ArgumentNullException">Thrown if passed mazeModel is null.</exception>
-        /// <exception cref="ArgumentException">Thrown if rowStart or columnStart are not in mazeModel:
+        /// <exception cref="ArgumentNullException">Thrown if passed maze is null.</exception>
+        /// <exception cref="ArgumentException">Thrown if passed maze is empty.</exception>
+        /// <exception cref="ArgumentOutOfRangeException">Thrown if rowStart or columnStart are not in mazeModel:
         /// less than zero or more then number of elements in the dimension.</exception>
-        public MazeSolver(int[,] maze, int rowStart, int columnStart) => throw new NotImplementedException();
+        public MazeSolvers(int[,] maze, int rowStart, int columnStart) => throw new NotImplementedException();
 
         /// <summary>
-        /// Starts an algorithm for finding path.
+        /// Starts an algorithm for finding shortest path.
         /// </summary>
+        /// <exception cref="InvalidOperationException">Thrown if the path does not exist.</exception>
         public void PassMaze() => throw new NotImplementedException();
 
         /// <summary>
@@ -33,7 +35,7 @@ namespace Maze
         /// The one-dimensional array of the pairs (row, column).
         /// </returns>
         /// <exception cref="InvalidOperationException">
-        /// Thrown if path finding algorithm wasn't started or the path does not exist.
+        /// Thrown if path finding algorithm wasn't started.
         /// </exception>
         public (int row, int column)[] GetPath() => throw new NotImplementedException();
         
@@ -44,7 +46,7 @@ namespace Maze
         /// The indexes of row and columns of exit from maze.
         /// </returns>
         /// <exception cref="InvalidOperationException">
-        /// Thrown if path finding algorithm wasn't started or the path does not exist.
+        /// Thrown if path finding algorithm wasn't started.
         /// </exception>
         public (int row, int column) GetExit() => throw new NotImplementedException();
     }
