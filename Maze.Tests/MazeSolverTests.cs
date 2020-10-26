@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using System.Linq;
 using NUnit.Framework;
 
 #pragma warning disable CA1707
@@ -11,14 +12,23 @@ namespace Maze.Tests
     public class MazeSolverTests
     {
         [TestCaseSource(typeof(TestCasesSource), nameof(TestCasesSource.TestCasesForMazePass))]
-        public void PassMaze_SuccessfulTests(int[,] maze, int row, int column, (int, int)[] expected)
+        public void GetPass_SuccessfulTests(int[,] maze, int row, int column, (int, int)[] expected)
         {
             MazeSolver solver = new MazeSolver(maze, row, column);
             solver.PassMaze();
             var actual = solver.GetPath();
             Assert.AreEqual(actual, expected);
         }
-        
+
+        [TestCaseSource(typeof(TestCasesSource), nameof(TestCasesSource.TestCasesForMazePass))]
+        public void GetExit_SuccessfulTests(int[,] maze, int row, int column, (int, int)[] expected)
+        {
+            MazeSolver solver = new MazeSolver(maze, row, column);
+            solver.PassMaze();
+            var actual = solver.GetPath();
+            Assert.AreEqual(actual.Last(), expected.Last());
+        }
+
         [Test]
         public void MazeSolverConstructor_MatrixIsNull_ThrowArgumentNullException()
             => Assert.Throws<ArgumentNullException>(() => new MazeSolver(null, 1, 2));
