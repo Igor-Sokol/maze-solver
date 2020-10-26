@@ -8,7 +8,7 @@ namespace Maze
     /// <summary>
     /// Class for finding exit out of a maze. It is assumed that the maze always has one entrance and only one exit (if any) and they are different.
     /// </summary>
-    public class MazeSolvers
+    public class MazeSolver
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="MazeSolver"/> class.
@@ -20,7 +20,7 @@ namespace Maze
         /// <exception cref="ArgumentException">Thrown if passed maze is empty.</exception>
         /// <exception cref="ArgumentOutOfRangeException">Thrown if rowStart or columnStart are not in mazeModel:
         /// less than zero or more then number of elements in the dimension.</exception>
-        public MazeSolvers(int[,] maze, int rowStart, int columnStart) => throw new NotImplementedException();
+        public MazeSolver(int[,] maze, int rowStart, int columnStart) => throw new NotImplementedException();
 
         /// <summary>
         /// Starts an algorithm for finding shortest path.
