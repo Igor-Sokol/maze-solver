@@ -12,18 +12,18 @@ namespace Maze.Tests
     public class MazeSolverTests
     {
         [TestCaseSource(typeof(TestCasesSource), nameof(TestCasesSource.TestCasesForMazePass))]
-        public void GetPass_SuccessfulTests(int[,] maze, int row, int column, (int, int)[] expected)
+        public void GetPass_SuccessfulTests(bool[,] maze, int row, int column, (int, int)[] expected)
         {
-            MazeSolver solver = new MazeSolver(maze, row, column);
+            var solver = new MazeSolver(maze, row, column);
             solver.PassMaze();
             var actual = solver.GetPath();
             Assert.AreEqual(actual, expected);
         }
 
         [TestCaseSource(typeof(TestCasesSource), nameof(TestCasesSource.TestCasesForMazePass))]
-        public void GetExit_SuccessfulTests(int[,] maze, int row, int column, (int, int)[] expected)
+        public void GetExit_SuccessfulTests(bool[,] maze, int row, int column, (int, int)[] expected)
         {
-            MazeSolver solver = new MazeSolver(maze, row, column);
+            var solver = new MazeSolver(maze, row, column);
             solver.PassMaze();
             var actual = solver.GetPath();
             Assert.AreEqual(actual.Last(), expected.Last());
@@ -35,40 +35,40 @@ namespace Maze.Tests
 
         [Test]
         public void MazeSolverConstructor_MatrixIsEmpty_ThrowArgumentException()
-            => Assert.Throws<ArgumentException>(() => new MazeSolver(new int[,] { { } }, 1, 2));
+            => Assert.Throws<ArgumentException>(() => new MazeSolver(new bool[,] { { } }, 1, 2));
 
         [TestCaseSource(typeof(TestCasesSource), nameof(TestCasesSource.TestCasesForCtor))]
-        public void MazeSolverConstructor_RowStartLessThanZero_ThrowArgumentOutOfRangeException(int[,] maze)
+        public void MazeSolverConstructor_RowStartLessThanZero_ThrowArgumentOutOfRangeException(bool[,] maze)
             => Assert.Throws<ArgumentOutOfRangeException>(() => new MazeSolver(maze, -12, 2));
 
         [TestCaseSource(typeof(TestCasesSource), nameof(TestCasesSource.TestCasesForCtor))]
-        public void MazeSolverConstructor_ColumnStartLessThanZero_ThrowArgumentOutOfRangeException(int[,] mazeModel)
-            => Assert.Throws<ArgumentOutOfRangeException>(() => new MazeSolver(mazeModel, 0, -2));
+        public void MazeSolverConstructor_ColumnStartLessThanZero_ThrowArgumentOutOfRangeException(bool[,] maze)
+            => Assert.Throws<ArgumentOutOfRangeException>(() => new MazeSolver(maze, 0, -2));
         
         [TestCaseSource(typeof(TestCasesSource), nameof(TestCasesSource.TestCasesForCtor))]
-        public void MazeSolverConstructor_RowStartThanMoreThanDimension_ThrowArgumentOutOfRangeException(int[,] maze)
+        public void MazeSolverConstructor_RowStartThanMoreThanDimension_ThrowArgumentOutOfRangeException(bool[,] maze)
             => Assert.Throws<ArgumentOutOfRangeException>(() => new MazeSolver(maze, 100, 2));
 
         [TestCaseSource(typeof(TestCasesSource), nameof(TestCasesSource.TestCasesForCtor))]
-        public void MazeSolverConstructor_ColumnStartMoreThanDimension_ThrowArgumentOutOfRangeException(int[,] mazeModel)
-            => Assert.Throws<ArgumentOutOfRangeException>(() => new MazeSolver(mazeModel, 0, 100));
+        public void MazeSolverConstructor_ColumnStartMoreThanDimension_ThrowArgumentOutOfRangeException(bool[,] maze)
+            => Assert.Throws<ArgumentOutOfRangeException>(() => new MazeSolver(maze, 0, 100));
 
         [TestCaseSource(typeof(TestCasesSource), nameof(TestCasesSource.TestCasesNoPath))]
-        public void PassMaze_NoPath_ThrowInvalidOperationException(int[,] mazeModel) 
+        public void PassMaze_NoPath_ThrowInvalidOperationException(bool[,] mazeModel) 
             => Assert.Throws<InvalidOperationException>(() => new MazeSolver(mazeModel, 0, 1));
 
         [TestCaseSource(typeof(TestCasesSource), nameof(TestCasesSource.TestCasesForGetPass))]
-        public void GetPath_PassMazeMethodWasNotStarted_ThrowInvalidOperationException(int[,] mazeModel, int row, int column)
+        public void GetPath_PassMazeMethodWasNotStarted_ThrowInvalidOperationException(bool[,] maze, int row, int column)
         {
-            var maze = new MazeSolver(mazeModel, row, column);
-            Assert.Throws<InvalidOperationException>(() => maze.GetPath());
+            var solver = new MazeSolver(maze, row, column);
+            Assert.Throws<InvalidOperationException>(() => solver.GetPath());
         }
         
         [TestCaseSource(typeof(TestCasesSource), nameof(TestCasesSource.TestCasesForGetPass))]
-        public void GetExit_PassMazeMethodWasNotStarted_ThrowInvalidOperationException(int[,] mazeModel, int row, int column)
+        public void GetExit_PassMazeMethodWasNotStarted_ThrowInvalidOperationException(bool[,] maze, int row, int column)
         {
-            var maze = new MazeSolver(mazeModel, row, column);
-            Assert.Throws<InvalidOperationException>(() => maze.GetExit());
+            var solver = new MazeSolver(maze, row, column);
+            Assert.Throws<InvalidOperationException>(() => solver.GetExit());
         }
     }
 }
