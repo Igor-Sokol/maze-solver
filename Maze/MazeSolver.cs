@@ -20,7 +20,7 @@ namespace Maze
         /// <exception cref="ArgumentException">Thrown if passed maze is empty.</exception>
         /// <exception cref="ArgumentOutOfRangeException">Thrown if rowStart or columnStart are not in mazeModel:
         /// less than zero or more then number of elements in the dimension.</exception>
-        public MazeSolver(int[,] maze, int rowStart, int columnStart) => throw new NotImplementedException();
+        public MazeSolver(bool[,] maze, int rowStart, int columnStart) => throw new NotImplementedException();
 
         /// <summary>
         /// Starts an algorithm for finding shortest path.
