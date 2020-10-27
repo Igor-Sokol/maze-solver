@@ -1,23 +1,25 @@
 ## Task description
 
-To model the maze a two-dimensional zero-based array is used. In array the value `0` is a cell, `1` is a wall. It is assumed that there is always a single entrance and a single exit in the maze. Look for the shortest path in the maze where there are two or more possible paths to complete the maze.    
+A two-dimensional zero-based boolean array  is used to model the maze. In array the value `false` is a cell, `true` is a wall. It is assumed that there is always a single entrance and a single exit in the maze.   
 For example, the matrix is used
 
         {
-            { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
-            { 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 1 },
-            { 1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0, 1 },
-            { 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1 },
-            { 1, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1 },
-            { 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1 },
-            { 1, 0, 1, 0, 1, 1, 0, 0, 0, 1, 0, 1 },
-            { 1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1 },
-            { 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 1 },
-            { 1, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1 },
-            { 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0 },
-            { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 }
+            { true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true },
+            { false, false, true,  false, false, false, false, false, true,  false, false, true },
+            { true,  false, true,  false, true,  true,  false, false, true,  true,  false, true },
+            { true,  false, true,  false, false, true,  false, false, false, false, false, true },
+            { true,  false, true,  true,  false, true,  true,  true,  true,  true,  true,  true },
+            { true,  false, true,  false, false, true,  false, true,  false, false, false, true },
+            { true,  false, true,  false, true,  true,  false, false, false, true,  false, true },
+            { true,  false, true,  false, false, false, false, true,  true,  true,  false, true },
+            { true,  false, true,  false, true,  false, false, true,  false, true,  false, true },
+            { true,  false, true,  true,  true,  true,  false, true,  false, true,  false, true },
+            { true,  false, false, false, false, false, false, true,  false, false, false, false },
+            { true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true,  true }
         }
 
 to simulate the next maze
 
 ![](/Maze.png)
+
+Implements a methods of the MazeSolver that look for the shortest path in the maze where there are two or more possible paths to complete the maze. The task definition is given in the XML-comments for this methods. 
