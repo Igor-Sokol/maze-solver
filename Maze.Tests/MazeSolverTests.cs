@@ -54,8 +54,11 @@ namespace Maze.Tests
             => Assert.Throws<ArgumentOutOfRangeException>(() => new MazeSolver(maze, 0, 100));
 
         [TestCaseSource(typeof(TestCasesSource), nameof(TestCasesSource.TestCasesNoPath))]
-        public void PassMaze_NoPath_ThrowInvalidOperationException(bool[,] mazeModel) 
-            => Assert.Throws<InvalidOperationException>(() => new MazeSolver(mazeModel, 0, 1));
+        public void PassMaze_NoPath_ThrowInvalidOperationException(bool[,] mazeModel)
+        {
+            var mazeSolver = new MazeSolver(mazeModel, 0, 1);
+            Assert.Throws<InvalidOperationException>(() => mazeSolver.PassMaze());
+        }
 
         [TestCaseSource(typeof(TestCasesSource), nameof(TestCasesSource.TestCasesForGetPass))]
         public void GetPath_PassMazeMethodWasNotStarted_ThrowInvalidOperationException(bool[,] maze, int row, int column)
