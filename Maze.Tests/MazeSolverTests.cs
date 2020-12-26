@@ -17,7 +17,7 @@ namespace Maze.Tests
             var solver = new MazeSolver(maze, row, column);
             solver.PassMaze();
             var actual = solver.GetPath();
-            Assert.AreEqual(actual, expected);
+            Assert.AreEqual(expected, actual);
         }
 
         [TestCaseSource(typeof(TestCasesSource), nameof(TestCasesSource.TestCasesForMazePass))]
