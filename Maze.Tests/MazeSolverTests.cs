@@ -56,7 +56,7 @@ namespace Maze.Tests
         [TestCaseSource(typeof(TestCasesSource), nameof(TestCasesSource.TestCasesNoPath))]
         public void PassMaze_NoPath_ThrowInvalidOperationException(bool[,] mazeModel)
         {
-            var mazeSolver = new MazeSolver(mazeModel, 0, 1);
+            var mazeSolver = new MazeSolver(mazeModel, 1, 0);
             Assert.Throws<InvalidOperationException>(() => mazeSolver.PassMaze());
         }
 
