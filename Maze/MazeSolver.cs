@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 #pragma warning disable CA1814
 #pragma warning disable S2368
+#pragma warning disable CA1062 // Validate arguments of public methods (Не видит через проверку в switch expression) 
 
 namespace Maze
 {
@@ -15,7 +16,6 @@ namespace Maze
         private readonly (int rowStart, int columnStart) start;
         private List<(int row, int column)> solvePath;
 
-#pragma warning disable CA1062 // Validate arguments of public methods
         /// <summary>
         /// Initializes a new instance of the <see cref="MazeSolver"/> class.
         /// </summary>
@@ -34,7 +34,6 @@ namespace Maze
             (_, _, _) when columnStart < 0 || columnStart > maze.Length => throw new ArgumentOutOfRangeException(nameof(columnStart), "ColumnStart less than zero or more then number of elements in the dimension."),
             _ => ((rowStart, columnStart), maze),
         };
-#pragma warning restore CA1062 // Validate arguments of public methods
 
         /// <summary>
         /// Starts an algorithm for finding shortest path.
